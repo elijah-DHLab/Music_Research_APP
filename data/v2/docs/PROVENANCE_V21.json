@@ -1,0 +1,17 @@
+{
+  "data_package_version": "2.1.0",
+  "base_processed_package": "V2 validated 2026-11-15",
+  "processed_observations": 222550,
+  "provisional_performances": 4094,
+  "suspect_youtube_observations": 7960,
+  "name_enrichment_source": "all_works_and_performers_master_list_with_ids.xlsx, downloaded 2026-11-15 (most recent copy)",
+  "identity_merge_rule": "same existing V2 entity ID or explicitly shared Wikidata QID; never fuzzy only",
+  "manual_wikidata_live_verification": false,
+  "source_data_note": "The processed observations are from the prior validated V2 snapshot. The newer Drive revisions were not fully reprocessed; do not represent this snapshot as synchronized with the latest source workbook versions.",
+  "warnings": [
+    "no data invented for missing weeks",
+    "source-based alias labels may be incomplete",
+    "performance/work IDs provisional",
+    "collaborations fractionally allocated for artist additive measures"
+  ]
+}

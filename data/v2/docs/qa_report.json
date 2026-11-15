@@ -1,0 +1,67 @@
+{
+  "schema_version": "2.0-data-only",
+  "generated_utc": "2026-11-15T09:48:43.890341+00:00",
+  "counts": {
+    "sources": 3,
+    "observations": 222550,
+    "source_items": 4981,
+    "performances": 4094,
+    "performance_source_links": 4981,
+    "entities": 1716,
+    "source_item_credits": 6481,
+    "performance_entities": 5417,
+    "works_provisional": 4094,
+    "performance_work_links": 4094,
+    "catalog_master_import": 4410,
+    "candidate_merges_review": 94,
+    "quality_issues": 577,
+    "coverage_observed": 1314,
+    "coverage_suspect": 80,
+    "coverage_gaps": 39,
+    "identity_decisions": 0,
+    "entity_decisions": 0,
+    "metadata_corrections": 0,
+    "events": 19
+  },
+  "per_source": {
+    "spotify_daily": {
+      "observations": 182400,
+      "first_observed_period_end": "2023-01-01",
+      "first_valid_period_end": "2023-01-01",
+      "suspect_periods": 0,
+      "last_observed_period_end": "2026-11-13",
+      "distinct_observed_periods": 912,
+      "interior_missing_intervals": 39
+    },
+    "youtube_tracks_weekly": {
+      "observations": 20055,
+      "first_observed_period_end": "2023-01-05",
+      "first_valid_period_end": "2023-10-12",
+      "suspect_periods": 40,
+      "last_observed_period_end": "2026-11-05",
+      "distinct_observed_periods": 201,
+      "interior_missing_intervals": 0
+    },
+    "youtube_videos_weekly": {
+      "observations": 20095,
+      "first_observed_period_end": "2023-01-05",
+      "first_valid_period_end": "2023-10-12",
+      "suspect_periods": 40,
+      "last_observed_period_end": "2026-11-05",
+      "distinct_observed_periods": 201,
+      "interior_missing_intervals": 0
+    }
+  },
+  "invariants": {
+    "observation_row_count_matches_raw": true,
+    "unique_observation_ids": true,
+    "foreign_keys_valid": true
+  },
+  "warnings": [
+    "CRITICAL: 40 repeated identical weekly snapshots in each YouTube dataset from Jan 5 to Oct 5 2023; excluded from trusted analysis.",
+    "Performance identity matches are conservative and provisional, not certified.",
+    "Master table and Wikidata classifications may contain mistakes; Festigal is flagged.",
+    "YouTube coverage now begins in January 2023; missing periods remain missing, never zero.",
+    "Work identities are one-to-one placeholders until curated; no automatic cover equivalence."
+  ]
+}

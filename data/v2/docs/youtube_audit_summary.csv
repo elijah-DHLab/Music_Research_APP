@@ -1,0 +1,3 @@
+﻿source,rows,first,last,weeks,duplicate_ranks,missing_ranks,missing_fields,invalid_numeric,week_mismatch,missing_week_intervals
+youtube_tracks_weekly,20055,2023-01-05,2026-11-05,201,0,45,39,0,0,0
+youtube_videos_weekly,20095,2023-01-05,2026-11-05,201,0,5,204,0,0,0

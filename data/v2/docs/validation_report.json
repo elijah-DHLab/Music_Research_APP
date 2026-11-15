@@ -1,0 +1,22 @@
+{
+  "ok": true,
+  "total_source_rows": 222550,
+  "source_items": 4981,
+  "performances_provisional": 4094,
+  "entities": 1716,
+  "observations_per_source": {
+    "spotify_daily": 182400,
+    "youtube_tracks_weekly": 20055,
+    "youtube_videos_weekly": 20095
+  },
+  "suspect_observations_per_source": {
+    "youtube_tracks_weekly": 3960,
+    "youtube_videos_weekly": 4000
+  },
+  "suspect_weeks_per_source": {
+    "youtube_tracks_weekly": 40,
+    "youtube_videos_weekly": 40
+  },
+  "first_trustworthy_youtube_week_end": "2023-10-12",
+  "note": "All suspect rows preserved; NOT valid prewar measurement."
+}

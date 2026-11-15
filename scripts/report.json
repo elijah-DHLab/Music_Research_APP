@@ -1,0 +1,24 @@
+{
+ "sp_dates": 912,
+ "sp_pairs": 76108,
+ "sp_per": 199,
+ "sp_rank1": 48,
+ "sp_eq": "לא נכלל",
+ "rows": 214600,
+ "dropped": 52,
+ "ents": 4920,
+ "songs": 3849,
+ "raw_titles": 5921,
+ "merged_title": 1071,
+ "bil": 40,
+ "enriched": 2807,
+ "multi": [
+  "GODMOTHER ← GODMOTHER (feat. Eden Ben Zaken) / Noga Erez, Eden Ben Zaken",
+  "כינורות ← כינורות / Eden Ben Zaken",
+  "3D ← 3D (feat. Jack Harlow) / Jung Kook, Jack Harlow",
+  "מדאם + יכולה לבד - לייב אצטדיון ר\"ג ← מדאם + יכולה לבד (לייב אצטדיון ר\"ג) / Odeya, Noam Bettan ¦ מדאם + יכולה לבד - לייב אצטדיון ר\"ג / Odeya, Noam Bettan",
+  "פרפרים בבטן ← פרפרים בבטן / LIAD MEIR, Moran Mazor ¦ פרפרים בבטן / ליעד מאיר, Moran Mazor",
+  "חלל ← חלל / Eviatar Banai"
+ ],
+ "noisy": 484
+}

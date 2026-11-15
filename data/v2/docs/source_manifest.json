@@ -1,0 +1,36 @@
+{
+  "source_files": [
+    {
+      "source_id": "spotify_daily",
+      "source_file": "Spotify-all_israel_charts_2023_to_today.xlsx",
+      "original_url": "https://docs.google.com/spreadsheets/d/1kChdqI9LjyjTGrLborhepL5ayjeSisPDB9HSKUKemgk/edit",
+      "period_granularity": "day",
+      "measure_unit": "streams",
+      "top_n_expected": 200,
+      "coverage_meaning": "ranked-chart availability; absent period is NOT zero",
+      "missing_values_policy": "NULL/blank means missing; zero only when observed"
+    },
+    {
+      "source_id": "youtube_tracks_weekly",
+      "source_file": "all_israel_youtube_charts_2023_to_today-TRACKS.xlsx",
+      "original_url": "https://docs.google.com/spreadsheets/d/1R1qJodi7-elh-sy6j8TZLKTh-9U9sVXsxsrmOPy3B9Y/edit",
+      "period_granularity": "week",
+      "measure_unit": "views",
+      "top_n_expected": 100,
+      "coverage_meaning": "ranked-chart availability; absent period is NOT zero",
+      "missing_values_policy": "NULL/blank means missing; zero only when observed"
+    },
+    {
+      "source_id": "youtube_videos_weekly",
+      "source_file": "all_israel_youtube_videos_2023_to_today-VIDEOS.xlsx",
+      "original_url": "https://docs.google.com/spreadsheets/d/1ECkV6yDtYbhQcCF2Rcl8LcVHHCSzm96y91cBK1Uvqrc/edit",
+      "period_granularity": "week",
+      "measure_unit": "views",
+      "top_n_expected": 100,
+      "coverage_meaning": "ranked-chart availability; absent period is NOT zero",
+      "missing_values_policy": "NULL/blank means missing; zero only when observed"
+    }
+  ],
+  "master_catalog_url": "https://docs.google.com/spreadsheets/d/1nPklPKzsf5bZVm4LR1YWP7B6h8rg1hOEWN4NhXbNM_E/edit",
+  "source_workbook": "all_works_and_performers_master_list_with_ids.xlsx"
+}

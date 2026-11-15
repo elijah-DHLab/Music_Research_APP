@@ -1,0 +1,236 @@
+{
+  "youtube_tracks_weekly": {
+    "rows": 20055,
+    "first": "2023-01-05",
+    "last": "2026-11-05",
+    "weeks": 201,
+    "valid_numeric_rows": 20055,
+    "missing_fields": {
+      "artist_names": 8,
+      "youtube_url": 31
+    },
+    "duplicate_ranks": [],
+    "bad_numeric": [],
+    "bad_numeric_count": 0,
+    "week_range_mismatches": [],
+    "week_range_mismatch_count": 0,
+    "missing_ranks_by_date": {
+      "2023-01-05": [
+        89
+      ],
+      "2023-01-12": [
+        89
+      ],
+      "2023-01-19": [
+        89
+      ],
+      "2023-01-26": [
+        89
+      ],
+      "2023-02-02": [
+        89
+      ],
+      "2023-02-09": [
+        89
+      ],
+      "2023-02-16": [
+        89
+      ],
+      "2023-02-23": [
+        89
+      ],
+      "2023-03-02": [
+        89
+      ],
+      "2023-03-09": [
+        89
+      ],
+      "2023-03-16": [
+        89
+      ],
+      "2023-03-23": [
+        89
+      ],
+      "2023-03-30": [
+        89
+      ],
+      "2023-04-06": [
+        89
+      ],
+      "2023-04-13": [
+        89
+      ],
+      "2023-04-20": [
+        89
+      ],
+      "2023-04-27": [
+        89
+      ],
+      "2023-05-04": [
+        89
+      ],
+      "2023-05-11": [
+        89
+      ],
+      "2023-05-18": [
+        89
+      ],
+      "2023-05-25": [
+        89
+      ],
+      "2023-06-01": [
+        89
+      ],
+      "2023-06-08": [
+        89
+      ],
+      "2023-06-15": [
+        89
+      ],
+      "2023-06-22": [
+        89
+      ],
+      "2023-06-29": [
+        89
+      ],
+      "2023-07-06": [
+        89
+      ],
+      "2023-07-13": [
+        89
+      ],
+      "2023-07-20": [
+        89
+      ],
+      "2023-07-27": [
+        89
+      ],
+      "2023-08-03": [
+        89
+      ],
+      "2023-08-10": [
+        89
+      ],
+      "2023-08-17": [
+        89
+      ],
+      "2023-08-24": [
+        89
+      ],
+      "2023-08-31": [
+        89
+      ],
+      "2023-09-07": [
+        89
+      ],
+      "2023-09-14": [
+        89
+      ],
+      "2023-09-21": [
+        89
+      ],
+      "2023-09-28": [
+        89
+      ],
+      "2023-10-05": [
+        89
+      ],
+      "2023-10-12": [
+        61
+      ],
+      "2025-03-27": [
+        57
+      ],
+      "2025-12-11": [
+        83
+      ],
+      "2026-04-16": [
+        97
+      ],
+      "2026-11-05": [
+        86
+      ]
+    },
+    "missing_weeks": []
+  },
+  "youtube_videos_weekly": {
+    "rows": 20095,
+    "first": "2023-01-05",
+    "last": "2026-11-05",
+    "weeks": 201,
+    "valid_numeric_rows": 20095,
+    "missing_fields": {
+      "video_title": 51,
+      "artist_names": 51,
+      "youtube_url": 51,
+      "video_id": 51
+    },
+    "duplicate_ranks": [],
+    "bad_numeric": [],
+    "bad_numeric_count": 0,
+    "week_range_mismatches": [],
+    "week_range_mismatch_count": 0,
+    "missing_ranks_by_date": {
+      "2023-11-16": [
+        82
+      ],
+      "2024-03-21": [
+        93
+      ],
+      "2024-10-24": [
+        84
+      ],
+      "2025-12-04": [
+        26
+      ],
+      "2026-06-25": [
+        77
+      ]
+    },
+    "missing_weeks": []
+  },
+  "catalog": {
+    "all_works_and_performers_master": {
+      "rows": 4410,
+      "headers": [
+        "work_name",
+        "performer_name",
+        "total_appearances",
+        "spotify_daily_count",
+        "spotify_weekly_count",
+        "youtube_tracks_count",
+        "youtube_videos_count",
+        "original_titles_variants",
+        "performers_count_for_this_work",
+        "spotify_uris",
+        "youtube_video_ids",
+        "youtube_urls"
+      ]
+    },
+    "performers": {
+      "rows": 1673,
+      "headers": [
+        "performer_name",
+        "works_count",
+        "rows_count",
+        "total_appearances",
+        "spotify_daily_total",
+        "spotify_weekly_total",
+        "youtube_tracks_total",
+        "youtube_videos_total",
+        "wikidata_id",
+        "wikidata_url",
+        "entity_type",
+        "wikidata_description",
+        "gender",
+        "birth_or_inception_year",
+        "death_year",
+        "birth_or_origin_country",
+        "birth_or_formation_city",
+        "citizenship",
+        "genres",
+        "hewiki_title"
+      ]
+    }
+  }
+}

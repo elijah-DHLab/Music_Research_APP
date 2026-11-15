@@ -1,0 +1,56 @@
+{
+  "observations.csv": {
+    "old": 214600,
+    "new": 222550,
+    "common": 214539,
+    "old_ids_missing": 61,
+    "new_ids": 8011,
+    "examples_missing": [
+      "OBS_81aba4b811f48dc01b",
+      "OBS_13c58be6bfc2cc53ba",
+      "OBS_60805a1b5a832a5140",
+      "OBS_fd3b4b0197f2df8ed8",
+      "OBS_7c40b8fbcd808eb228"
+    ],
+    "changed_data_existing_ids": 0,
+    "changed_performance_links": 1066
+  },
+  "source_items.csv": {
+    "old": 4922,
+    "new": 4981,
+    "common": 4919,
+    "old_ids_missing": 3,
+    "new_ids": 62,
+    "examples_missing": [
+      "UNRESOLVED_448defbc35931fcdca",
+      "yt:NrLWUfTs784",
+      "yt:X8CcSn4EcOo"
+    ],
+    "changed_performance_links": 42
+  },
+  "performances.csv": {
+    "old": 4011,
+    "new": 4094,
+    "common": 3994,
+    "old_ids_missing": 17,
+    "new_ids": 100,
+    "examples_missing": [
+      "PERF_80f172c8f9765ff7fb",
+      "PERF_46ba149912121ba480",
+      "PERF_ea9f5274b5a87a5de0",
+      "PERF_8ed3d6f6289adc7670",
+      "PERF_6823fffb9389ec013e"
+    ],
+    "changed_display_name_on_same_id": 0
+  },
+  "entities.csv": {
+    "old": 1695,
+    "new": 1716,
+    "common": 1694,
+    "old_ids_missing": 1,
+    "new_ids": 22,
+    "examples_missing": [
+      "ENT_808e8143a25893d467"
+    ]
+  }
+}
