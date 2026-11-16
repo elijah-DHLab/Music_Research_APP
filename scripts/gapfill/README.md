@@ -11,6 +11,9 @@
 | `sample_check_spotify.py` | בדיקה מדגמית של ימי Spotify קיימים מול המקור |
 | `assemble_v2.py` | בונה את קובצי ה־V2 (עמודת `fill_source`: unchanged / added / corrected) ומאמת |
 | `update_app_data.py` | מעדכן את הנתונים המוטמעים ב־index.html בלי לאבד את שדות הזהות של V2.1 |
+| `link_new_tracks.py` | מקשר הקלטות חדשות לביצועים/מבצעים קיימים באפליקציה → `link_report.csv` |
+| `update_runtime.py` | בונה מחדש את `data/v2/runtime` ו־`data/recordings.csv` |
+| `update_master.py` | בונה את קובץ היצירות והמבצעים V2 ואת `data/catalog_master_import.csv` |
 | `merge_validate.py` | ממזג את מה שהורד לקובצי ה־Drive, מוסיף עמודת `fill_source`, ועוצר (exit 1) אם נשארו חורים/שבועות זהים |
 
 ## סדר הרצה
@@ -27,3 +30,4 @@
 * דירוג "חסר" כמו 89 = שוויון במקור (שני שירים באותו דירוג); זה מצב המקור ולא תקלה.
 * `assemble_v2.py --spotify-old raw/Spotify-all_israel_charts_2023_to_today.xlsx` → `v2/*_V2.xlsx`, 0 בעיות אימות.
 * `update_app_data.py` → index.html: 323,170 תצפיות, 895 ביצועים חדשים לבדיקה (`gapfill_new_unmatched`).
+* `update_master.py` → `v2/all_works_and_performers_master_list_with_ids_V2.xlsx`: 4,927 יצירות (653 חדשות), 1,818 מבצעים (188 חדשים, דורשים Wikidata). הקטלוג המקורי לא ספר את השבועות החשודים — לכן מופחתות רק שורות שנספרו.
