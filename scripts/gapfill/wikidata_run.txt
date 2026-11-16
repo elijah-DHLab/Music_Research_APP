@@ -1,0 +1,40 @@
+searched 10/188
+  HTTP 429, waiting 25s
+searched 20/188
+  HTTP 429, waiting 46s
+searched 30/188
+  HTTP 429, waiting 45s
+searched 40/188
+  HTTP 429, waiting 46s
+searched 50/188
+  HTTP 429, waiting 45s
+searched 60/188
+  HTTP 429, waiting 46s
+  HTTP 429, waiting 45s
+searched 70/188
+  HTTP 429, waiting 46s
+searched 80/188
+  HTTP 429, waiting 45s
+searched 90/188
+  HTTP 429, waiting 46s
+searched 100/188
+  HTTP 429, waiting 45s
+searched 110/188
+  HTTP 429, waiting 46s
+searched 120/188
+  HTTP 429, waiting 45s
+searched 130/188
+  HTTP 429, waiting 46s
+searched 140/188
+  HTTP 429, waiting 45s
+searched 150/188
+  HTTP 429, waiting 46s
+searched 160/188
+  HTTP 429, waiting 45s
+searched 170/188
+  HTTP 429, waiting 46s
+searched 180/188
+  HTTP 429, waiting 46s
+  HTTP 429, waiting 41s
+  HTTP 429, waiting 20s
+resolved 92 of 188

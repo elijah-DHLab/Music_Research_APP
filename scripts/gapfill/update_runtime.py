@@ -38,7 +38,7 @@ for (wk, s), a in sorted(agg.items()):
 dump(os.path.join(RT, 'periods.json'), per)
 
 # performances: append gap-fill performances
-pf = json.load(open(os.path.join(RT, 'performances.json'), encoding='utf-8')); have = {p['id'] for p in pf}; added = []
+pf = [p for p in json.load(open(os.path.join(RT, 'performances.json'), encoding='utf-8')) if not p['id'].startswith('PERF_GF_')]; have = {p['id'] for p in pf}; added = []  # idempotent
 for t in T:
     pid = t[C['performance_id']]
     if pid in have or not t[C['identity_status']].startswith('gapfill'): continue
@@ -48,8 +48,10 @@ for t in T:
     pf.append(rec); added.append(rec); have.add(pid)
 dump(os.path.join(RT, 'performances.json'), pf)
 
-with open(os.path.join(ROOT, 'data', 'recordings.csv'), 'a', newline='', encoding='utf-8') as fh:
-    w = csv.writer(fh)
+rec_path = os.path.join(ROOT, 'data', 'recordings.csv')
+keep = [r for r in csv.reader(open(rec_path, encoding='utf-8-sig')) if not r[0].startswith('PERF_GF_')]
+with open(rec_path, 'w', newline='', encoding='utf-8-sig') as fh:
+    w = csv.writer(fh); w.writerows(keep)
     for r in added: w.writerow([r['id'], r['title'], r['artists'], '', 'unspecified', r['identity'], 1, r['review'], '', '', ''])
 
 m = json.load(open(os.path.join(RT, 'manifest.json'), encoding='utf-8'))
@@ -62,6 +64,12 @@ m['notes'] = ['Gap-fill 2026-11-16: 502 missing Spotify days and 41 YouTube week
               'Untitled rows (removed videos / unnamed tracks) are omitted, as before; see coverage.json observed_partial_*.',
               'runtime/weeks/*.json week-detail files are not part of this APP package.']
 dump(os.path.join(RT, 'manifest.json'), m)
+ej = [e for e in json.load(open(os.path.join(RT, 'entities.json'), encoding='utf-8')) if not str(e.get('review', '')).startswith('gapfill')]
+have_e = {e['id'] for e in ej}
+for eid, e in V['entities'].items():
+    if e.get('status') == 'gapfill_wikidata_auto' and eid not in have_e:
+        ej.append({'id': eid, 'name': e.get('display') or e.get('en'), 'kind': e.get('kind'), 'review': 'gapfill_wikidata_auto', 'genres_source': ''})
+dump(os.path.join(RT, 'entities.json'), ej)
 dump(os.path.join(RT, 'names_v21.json'), V)
 open(os.path.join(RT, 'names_v21.js'), 'w', encoding='utf-8').write('window.WM_V21=' + json.dumps(V, ensure_ascii=False, separators=(',', ':')) + ';')
 print('coverage', len(cov), 'periods', len(per), 'performances', len(pf), f'(+{len(added)})')
