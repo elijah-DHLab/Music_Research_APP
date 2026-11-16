@@ -1,14 +1,17 @@
-# Music Research APP 2.6 — self-contained dark research dashboard
+# Music Research V2.7 — השלמת נתונים / data gap-fill (2026-11-16)
 
-Open `index.html` after extracting the ZIP. Data are embedded in the HTML; no manual installation or V2 DATA package is required. The application remains portable to static hosting.
+## מה השתנה
+- **Spotify יומי שלם:** 1,414 ימים (1.1.2023–14.11.2026) במקום 912. ‏502 ימים חסרים הורדו מחדש מ־charts.spotify.com, כל אחד עם 200 דירוגים מלאים. מדגם של 30 ימים קיימים היה זהה למקור.
+- **YouTube שבועי שלם:** 202 שבועות בכל סדרה (5.1.2023–12.11.2026). 40 השבועות המשוכפלים של ינואר–אוקטובר 2023 הוחלפו בתרשימים האמיתיים; 5 שבועות שבהם נשמטה שורה בשוויון דירוג תוקנו; נוסף השבוע 12.11.2026. ‏156 שבועות היו זהים למקור.
+- **אין יותר תצפיות חשודות** (`suspect_rows = 0`). המתג "הצג נתוני YouTube חשודים" נשאר אך אינו משנה דבר.
+- **זהויות:** 895 הקלטות חדשות — 286 צורפו לביצוע קיים, 9 כפילויות אוחדו, 472 קושרו למבצע מוכר (`gapfill_artist_linked`), 128 ללא התאמה (`gapfill_unmatched`). כיסוי מטא־דאטה של מבצעים בתקופה שהושלמה: 78.3% מההשמעות — זהה לתקופה המקורית.
+- **קובץ היצירות והמבצעים V2** (`all_works_and_performers_master_list_with_ids_V2.xlsx`): ספירות ההופעות עודכנו לפי הנתונים המלאים (סה"כ 323,200 = 282,800 Spotify + 20,200 Tracks + 20,200 Videos). ‏2,270 שורות יצירה עודכנו, 653 נוספו (סדר השורות הקיימות נשמר); בגיליון המבצעים 911 עודכנו ו־188 מבצעים חדשים נוספו — רובם ללא מטא־דאטה של Wikidata ודורשים השלמה. עמודת `gapfill_status` מסמנת unchanged / updated / new. ‏`data/catalog_master_import.csv` נבנה מחדש מקובץ זה (הגרסה הקודמת במאגר נבנתה מגרסה ישנה יותר של הקטלוג).
+- `data/v2/runtime/` (coverage, periods, performances, names_v21, manifest) ו־`data/recordings.csv` עודכנו בהתאם.
 
-The 11 research screens, charts, creators/songs, source comparisons, filtering, zoom, exports, events, identity links, and Hebrew/English interface are retained from V2.5.
+## מגבלות
+- "דירוג חסר" ב־14 שבועות YouTube הוא שוויון במקור (שני פריטים באותו דירוג), לא חוסר.
+- 30 שורות YouTube ללא כותרת (סרטונים שהוסרו) ו־6 שורות Spotify ללא שם — המקור אינו מספק להן מזהה; לא נכללות, כמו קודם.
+- זהויות הביצועים החדשים זמניות; רשימת הבדיקה: `scripts/gapfill/link_report.csv`.
 
-## Data coverage
-Normalized merged series use only sources actually observed in each period. The amber hatched area identifies periods where fewer than all selected sources were available; hovering shows contributing source count. For research requiring a fixed source panel, use the secondary `Source` split. Real source gaps and the repeated suspect YouTube early-2023 snapshots remain excluded rather than imputed. Lack of a chart entry is not lack of listening.
-
-## Size
-The APP zip excludes redundant V2 full observations CSVs, separate weekly JSON copies and the original XLSX archives. Core data for all visuals and raw-row exports remain embedded. Three useful compact reference CSV catalogs are included. Original Google Sheets are linked from the data screen, rather than duplicated. The full DATA V2.1 package remains a separate research archival release.
-
-## Testing
-Chromium-based DOM tests confirmed load of all 222,550 underlying records; source coverage calculations; all 11 research screens; song source comparisons; zoom; language switch and reset. `file://` direct navigation is blocked by the test environment, so double-click/open-file behavior could not be independently checked there.
+## שחזור
+כל הסקריפטים ותיעוד ההרצה: `scripts/gapfill/README.md`. קובצי ה־V2 להעלאה ל־Drive נבנים ב־`scripts/gapfill/v2/` (לא נשמרים ב־git).
