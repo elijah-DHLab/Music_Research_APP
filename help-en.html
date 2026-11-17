@@ -1,14 +1,154 @@
-<!doctype html><html lang="en" dir="ltr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Guide · Listening in Israel During the War</title><style>body{max-width:1000px;margin:auto;padding:24px;font:15px/1.65 Heebo,Arial,sans-serif;color:#252525;background:#fafaf7}h1,h2{line-height:1.3}h2{margin-top:30px;border-bottom:1px solid #ddd;padding-bottom:6px}code{background:#eee;padding:2px 5px}a{color:#1d6fa5}table{border-collapse:collapse;width:100%}td,th{padding:7px;border:1px solid #ccc;text-align:left}.note{padding:12px;border-left:3px solid #1d6fa5;background:white}</style></head><body><section style="padding:14px 16px;background:#172839;color:#f3f6fa;border:1px solid #547393;border-radius:12px;margin:14px 0;font:14px sans-serif;line-height:1.8"><strong>Important — V2 data update</strong><p>This application reads 323,170 observations (V2 gap-fill, 2026-11-16): 282,794 Spotify daily (1,414 days, 2023-01-01 to 2026-11-14), 20,200 YouTube Tracks and 20,176 YouTube Videos (202 weeks, 2023-01-05 to 2026-11-12). 502 missing Spotify days and 41 YouTube weeks (incl. the 40 formerly duplicated 2023 weeks) were refetched from source; a 30-day Spotify sample and 156 YouTube weeks matched the source exactly. 30 untitled YouTube rows (removed videos) and 6 untitled Spotify rows are omitted. Of 895 previously unseen recordings: 286 were joined to an existing performance (same title, version and performer), 9 cross-platform duplicates merged, 472 linked to a known catalog performer (gapfill_artist_linked) and 128 remain unmatched (gapfill_unmatched); all flagged needs_review. Missing coverage is not zero; zero Top-N appearances are not zero listening. Performance identities remain provisional pending review. See data/v2/docs/INTEGRATION_CONTRACT_EN.md for full documentation. Legacy examples below refer to the earlier version and require renewed validation before publication.</p></section>
-<h1>Listening in Israel During the War</h1><p>Research guide to the interactive chart explorer. This guide explains how to interpret the results, compare sources and reproduce analyses.</p>
-<h2>Data sources and frequency</h2><table><tr><th>Source</th><th>Original frequency</th><th>Measurement</th></tr><tr><td>Spotify Israel Top Songs</td><td>Daily</td><td>Streams and chart rank</td></tr><tr><td>YouTube Music Charts — Tracks</td><td>Weekly</td><td>Views and chart rank</td></tr><tr><td>YouTube Music Charts — Videos</td><td>Weekly</td><td>Views and chart rank</td></tr></table>
-<p class="note">Spotify and YouTube represent different audiences and different measurement systems. Raw streams and views must not be added together and interpreted as a single listening volume.</p>
-<h2>Getting started</h2><p>Use the global filter bar to choose one or more sources, languages, genres, countries, gender categories or time limits. The Overview, Songs, Artists and Explore tabs allow selecting a group-by dimension, a secondary split, a metric, a chart style and a time resolution. Research Questions provides ready-made analyses. Reset Filters restores the full source selection.</p>
-<h2>Comparing two, three or more categories</h2><p>Choose a dimension such as Genre or Language. Use the series chooser above the chart to select any number of individual series; selected series remain visible together. Add another category with its checkbox; clear the selection to return to the top-ranking categories. Use the secondary split “Source” to show each source separately. The global Source filter may instead restrict the comparison to Spotify or YouTube only.</p>
-<h2>Time alignment and normalization</h2><p>Weekly aggregation is the default common frequency: Spotify daily observations are grouped into the corresponding week and YouTube weekly observations retain their weekly bins. Monthly and yearly aggregation are also available. The original daily/weekly option is only appropriate for within-source inspection. For cross-source comparison, prefer Share within each source (%) rather than raw values; a source split can show the differences between sources. The index option compares change relative to an earlier baseline.</p>
-<h2>How to read the charts</h2><p>Move over a line or table row to highlight a category and inspect the value. Click a line or a row to pin a series. Click its legend item to toggle visibility. Drag horizontally to define an additional comparison period. The Raw link leads to corresponding source rows. The CSV button exports the plotted series.</p>
-<h2>Period comparison</h2><p>The Compare Periods tab supports editable period names and date ranges. It summarizes dimensions separately and highlights values with large changes. Period boundaries are stored locally in your browser; export comparisons to CSV for further analysis. Raw totals from different sources are displayed for auditing only, not as a valid cross-platform sum.</p>
-<h2>Works, recordings and chart observations</h2><p>A musical work is a conceptual song; it may have multiple recordings or performances. A recording can appear on multiple platforms under different titles and identifiers. Each chart observation records its source, time, rank and count. The Data & Sources tab includes three separate exports: proposed works, recordings, and a crosswalk to the updated master list. Candidate connections need human review before being treated as verified identities.</p>
-<h2>Interpretive cautions</h2><p>Ranked charts are not a complete sample of all listening. Differences between the YouTube Tracks and Videos charts may reflect platform classification rather than musical semantics. Language and genre metadata may be incomplete or inferred, and should be validated before publication. Spotify daily coverage contains gaps: there are 912 days with observations, not a continuous daily panel throughout the period. Missing dates must not be treated as zero streams.</p>
-<h2>Data, export and API</h2><p>The Data & Sources tab provides links to the original spreadsheets, raw observations and the normalized song catalog. The API tab documents URL query parameters such as <code>grp</code>, <code>split</code>, <code>m</code>, <code>gran</code>, <code>src</code>, <code>lang</code>, <code>genre</code>, <code>from</code> and <code>to</code>. CSV outputs start with a UTF-8 BOM to ease opening in spreadsheet applications.</p>
-<h2>Offline use and publishing</h2><p>Extract the ZIP first, then open <code>site/index.html</code>. Under <code>file://</code>, the website uses the bundled JavaScript data fallback. On an HTTP(S) host such as GitHub Pages, it prioritizes the smaller compressed data transfer. The interface and dataset work as a static website and do not require a database server.</p>
-<section id="research-literature"><h2>Research framing and responsible interpretation</h2><p>The project brief <a href="https://docs.google.com/document/d/1jHwvAd1EeBNkBeSfN1jX3WrVhpdtQMgrvc-GZfBNjco/edit">Music streaming during the Iron Swords war</a> proposes questions about language, repertoire, change points, and different music uses during crisis. These data describe Top charts—not all listening in Israel or users’ psychological motivations.</p><p><b>Missing does not mean zero:</b> the first observed date for both weekly YouTube series is October 12, 2023. YouTube cannot support a before/after October 7 comparison. Spotify has an earlier baseline but incomplete coverage overall. Zero chart entries during observed coverage only means absence from the ranked chart.</p><h3>Studies informing research-question design</h3><ul><li><a href="https://musicdiscover.net">Lee et al., Unsettled Times</a>: distinguishes music discovery (Shazam) from streaming popularity and highlights cross-platform triangulation.</li><li><a href="https://alexeymakarin.github.io/assets/AKMS_War_Nation_Building.pdf">Abramenko et al., War and Nation-Building (2026)</a>: motivates language/identity questions but does not justify identity conclusions from chart language alone.</li><li><a href="https://doi.org/10.1109/ISM59092.2023.00037">Terroso-Sáenz et al. (2023)</a>: explores audio features that are not yet included in the present dataset.</li><li><a href="https://www.nature.com/articles/s41599-023-01614-0">Yeung (2023)</a>: distinguishes age of recordings from nostalgia and uses pre-period/placebo comparisons. A returning older song is not proof of nostalgic motivation.</li></ul><p>Each question is marked measured, partial, or not answerable. Numerical summaries are preliminary descriptive calculations requiring coverage and identity validation before publication.</p></section></body></html>
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Guide · Listening in Israel During the War</title>
+<style>
+:root{--bg:#141a20;--fg:#e3eaf0;--muted:#a9b9c6;--line:#33414e;--card:#1b232b;--ac:#7fbfe8;--warn:#e4b577}
+*{box-sizing:border-box}
+html{background:var(--bg)}
+body{margin:0 auto;max-width:900px;padding:22px 20px 40px;background:var(--bg);color:var(--fg);font:15px/1.7 Heebo,Arial,system-ui,sans-serif}
+h1{font-size:24px;margin:0 0 4px;color:#fff}
+h2{font-size:18px;margin:34px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--line);color:#fff}
+h3{font-size:15px;margin:20px 0 6px;color:#d6e6f1}
+p{margin:8px 0}
+.lede{color:var(--muted);margin-bottom:18px}
+a{color:var(--ac)}
+code{background:#26313b;color:#e8f1f7;padding:1px 6px;border-radius:4px;font-size:13px}
+ul,ol{padding-inline-start:22px;margin:8px 0}li{margin:4px 0}
+table{border-collapse:collapse;width:100%;margin:10px 0;font-size:14px}
+th,td{border:1px solid var(--line);padding:7px 10px;text-align:start;vertical-align:top}
+th{background:var(--card);color:#fff;font-weight:600}
+nav.toc{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 16px;font-size:14px}
+nav.toc ol{margin:4px 0;columns:2;column-gap:28px}
+.key{border-inline-start:3px solid var(--warn);background:var(--card);padding:10px 14px;border-radius:0 8px 8px 0;margin:12px 0}
+.k{display:inline-block;min-width:22px;padding:0 6px;border:1px solid var(--line);border-radius:5px;background:#222c35;font-size:13px;text-align:center}
+.muted{color:var(--muted)}
+@media(max-width:620px){nav.toc ol{columns:1}body{padding:16px}}
+</style>
+</head>
+<body>
+<h1>Listening in Israel During the War — Guide</h1>
+<p class="lede">What the site contains, how to read the charts, and what the data can and cannot tell you. Data version V2.7, updated 2026-11-16.</p>
+
+<nav class="toc"><ol>
+<li><a href="#sources">Sources and coverage</a></li>
+<li><a href="#tabs">Tabs</a></li>
+<li><a href="#chart">Working with the chart</a></li>
+<li><a href="#events">War events</a></li>
+<li><a href="#normalize">Comparing sources</a></li>
+<li><a href="#periods">Period comparison</a></li>
+<li><a href="#identity">Songs, performances, artists</a></li>
+<li><a href="#cautions">Interpretive cautions</a></li>
+<li><a href="#export">Export and API</a></li>
+<li><a href="#research">Research framing</a></li>
+</ol></nav>
+
+<div class="key"><strong>Three rules first:</strong>
+<ol>
+<li>Never add Spotify streams to YouTube views. They come from different audiences and use different units.</li>
+<li>Missing data is not zero. A song absent from the chart may still have had listeners.</li>
+<li>These are Top-N charts, not a sample of all listening in Israel.</li>
+</ol></div>
+
+<h2 id="sources">1. Data sources and coverage</h2>
+<table>
+<tr><th>Source</th><th>Frequency</th><th>Measure</th><th>Coverage</th></tr>
+<tr><td>Spotify · Top Songs Israel</td><td>Daily, Top 200</td><td>Streams and rank</td><td>1,414 consecutive days, 2023-01-01 to 2026-11-14 (282,794 observations)</td></tr>
+<tr><td>YouTube · Tracks</td><td>Weekly, Top 100</td><td>Views of a song (across all its videos) and rank</td><td>202 weeks, 2023-01-05 to 2026-11-12 (20,200 observations)</td></tr>
+<tr><td>YouTube · Videos</td><td>Weekly, Top 100</td><td>Views of a single video and rank</td><td>202 weeks, 2023-01-05 to 2026-11-12 (20,176 observations)</td></tr>
+</table>
+<p>The site contains 323,170 observations in total. The 2026-11-16 gap-fill refetched from source 502 missing Spotify days and 41 YouTube weeks, including 40 weeks of 2023 that had been duplicated in the previous version. A sample of 30 existing Spotify days and 156 YouTube weeks matched the source exactly.</p>
+<p class="muted">Excluded: 30 untitled YouTube rows (removed videos) and 6 unnamed Spotify rows. A “missing rank” in 14 YouTube weeks reflects a tie in the source, not missing data.</p>
+<p><strong>Performer metadata</strong> (gender, country of origin, city, genre, entity type, birth decade) comes from the performer catalog, which was enriched from Wikidata. Genre is therefore the performer’s genre, not necessarily the song’s. Language is inferred from the title script, so it is an estimate.</p>
+
+<h2 id="tabs">2. Tabs</h2>
+<table>
+<tr><th>Tab</th><th>What it is for</th></tr>
+<tr><td>Overview · Songs · Artists · Explore</td><td>Timelines of series (language, genre, song, artist…) with a summary table below the chart.</td></tr>
+<tr><td>Compare periods</td><td>Compares periods you define, across all dimensions at once.</td></tr>
+<tr><td>Research questions</td><td>Ready-made questions. Each has a provisional answer, its limits, and a link to the chart that shows the evidence.</td></tr>
+<tr><td>Events</td><td>The list of war events. You can filter by type, add your own events, and export or import them.</td></tr>
+<tr><td>Data &amp; sources</td><td>Raw source rows, links to the original spreadsheets, and catalog exports.</td></tr>
+<tr><td>V2 performance catalog</td><td>Find a performance by song title, performer or ID and open its rows.</td></tr>
+<tr><td>API</td><td>Documents the URL parameters for retrieving series or rows.</td></tr>
+</table>
+
+<h2 id="chart">3. Working with the chart</h2>
+<h3>Filtering and selection</h3>
+<p>The filter bar at the top (source, language, gender, genre, dates, rank, search) applies to all tabs. <span class="k">↺ Reset everything</span> at the end of the bar restores the initial state: filters, selected series, zoom and periods.</p>
+<p>Above the chart, choose a <b>group by</b> dimension (e.g. language), a <b>secondary split</b> (e.g. source), a <b>measure</b>, a chart type, a <b>normalization</b> and a <b>time unit</b>. Use the series picker below the chart to compare two, three or more series.</p>
+<h3>Zooming and navigating time</h3>
+<ul>
+<li><b>Drag</b> horizontally on the chart to zoom into that range. If “Drag to create comparison period” is checked, dragging defines a period instead.</li>
+<li><span class="k">＋</span> and <span class="k">－</span> zoom in and out step by step. <span class="k">↶ Previous range</span> goes back one step.</li>
+<li><b>Double-click</b> the chart, or use <span class="k">Show full timeline</span>, to return to the full range.</li>
+<li><span class="k">⛶ Full screen</span> enlarges the chart to the whole screen. In full screen, the mouse wheel zooms around the cursor. Outside full screen, use Ctrl+wheel. Press Esc to exit.</li>
+</ul>
+<h3>Reading values</h3>
+<ul>
+<li>Hover over a line to see the series, date and value. Hover over a dashed line to see the event name.</li>
+<li>Click a point to see which songs, artists and languages make up that value in that time bucket.</li>
+<li>Click a table row to pin a series (★). Click a legend item to hide or show it. “Raw” opens the source rows.</li>
+<li>The <span class="k">i</span> button next to the chart title explains how the current view is calculated and what its coverage is.</li>
+</ul>
+
+<h2 id="events">4. War events on the chart</h2>
+<p>Each event is marked with a dashed line and a number at the top of the chart. The color shows the event type: war &amp; operations, hostages &amp; agreements, losses &amp; disasters, regional escalation, political developments, society &amp; commemoration. Below the chart, a numbered list shows the events in the visible range. Click an event in the list to zoom to six weeks before and after it.</p>
+<ul>
+<li><span class="k">⚑ Events</span> shows or hides the event lines.</li>
+<li><span class="k">Event names</span> shows or hides the names on the chart. Where events are too close together, only the number appears on the chart, and the name is in the list below it. Zooming in separates crowded events.</li>
+<li>In the Events tab you can choose which event types to show and add your own events. Events you add are saved only in your browser.</li>
+</ul>
+<p class="muted">An event that coincides with a change in the chart does not prove that it caused the change. Compare with similar periods without an event.</p>
+
+<h2 id="normalize">5. Comparing sources and normalization</h2>
+<ul>
+<li><b>Share within each source (%)</b> — recommended. Each value is a percentage of all streams or chart appearances in the same source and time bucket. When sources are combined, the average uses only the sources actually observed in that bucket. Buckets with partial coverage are hatched.</li>
+<li><b>Absolute numbers</b> — suitable only within a single source. When showing several sources, split by source.</li>
+<li><b>Index</b> — each series relative to its mean in the first period (=100). Use it to compare trends, not amounts.</li>
+<li><b>Logarithmic</b> — a log axis for raw values.</li>
+</ul>
+<p>The common time unit is the <b>Thursday-aligned week</b>, as in the YouTube charts. Spotify days are grouped into the matching week. For a controlled cross-source comparison, choose “Split by: Source” so that each source gets its own line.</p>
+
+<h2 id="periods">6. Period comparison</h2>
+<p>The default periods include “Before the war” and “First weeks”. You can rename periods, edit their dates, add new ones (or drag on the chart when that option is checked) and reset them. For each dimension, the tab shows the share in each period, the change between periods, and the songs and artists that changed most. The top filters apply here as well. Periods are saved in your browser, and the comparison can be exported to CSV.</p>
+
+<h2 id="identity">7. Songs, performances and artists</h2>
+<p>The model has three levels: a <b>work</b> (the song as a composition), a <b>performance/recording</b> (a specific version by a specific performer) and a <b>chart observation</b> (that recording in a given source, date and rank). The same performance can appear on Spotify and YouTube under different titles, so it is unified under a performance ID.</p>
+<h3>What normalization did</h3>
+<ul>
+<li>Removed invisible characters, Hebrew vowel marks and direction marks. Name matching ignores letter case and punctuation.</li>
+<li>Removed additions such as “(Official Video)”, “(קליפ רשמי)” and production credits from YouTube titles, as well as a leading performer name.</li>
+<li>Channel names (such as “Kan Gimel” or “Topic”) are not treated as artists.</li>
+<li>Bilingual names of the same performer were merged only where there was evidence for it.</li>
+<li>Identical titles by different performers were not merged (e.g. Daylight by David Kushner and by Drake). Live, Remix, Acoustic and Cover versions remain separate performances and are marked in the “Version” dimension.</li>
+</ul>
+<h3>V2.7 gap-fill</h3>
+<p>Of 895 recordings first seen in the gap-filled data: 286 were joined to an existing performance, 9 duplicates were merged, 472 were linked to a known performer and 128 remain unmatched. All are flagged for review (<code>needs_review</code>). Of 188 new performers, 88 were enriched automatically from Wikidata and 94 were not found (mostly Arabic-language performers). Performance identities are provisional until manually verified.</p>
+
+<h2 id="cautions">8. Interpretive cautions</h2>
+<ul>
+<li>Charts reflect the <b>composition of the Top-N</b>, not total listening volume or listeners’ motivations.</li>
+<li>Spotify and YouTube represent different audiences. Differences between Tracks and Videos may reflect how YouTube classifies content rather than the music itself.</li>
+<li>Language, genre and gender are proxies. Genre belongs to the performer, and gender refers to the tagged performer, not the audience.</li>
+<li>Each song’s first week on the chart counts as a “new entry”, so this measure is inflated at the start of the period.</li>
+<li>The numbers in the Research questions tab are preliminary descriptive calculations. Validate them against coverage and performance identities before publication.</li>
+</ul>
+
+<h2 id="export">9. Export and API</h2>
+<p>The CSV button next to the chart exports the plotted series. The Data &amp; sources tab offers raw rows, the normalized song catalog, works (<code>data/works.csv</code>) and recordings (<code>data/recordings.csv</code>). CSV files include a UTF-8 BOM so that Hebrew opens correctly in Excel.</p>
+<p>The API tab documents URL parameters, for example <code>?api=series&amp;grp=lang&amp;split=src&amp;m=n&amp;gran=m&amp;format=csv</code>. The site is static and needs no database server. Full data-model documentation: <code>data/v2/docs/INTEGRATION_CONTRACT_EN.md</code>.</p>
+
+<h2 id="research">10. Research framing</h2>
+<p>The project brief <a href="https://docs.google.com/document/d/1jHwvAd1EeBNkBeSfN1jX3WrVhpdtQMgrvc-GZfBNjco/edit" target="_blank" rel="noopener">Music streaming during the Iron Swords war</a> proposes questions about language, repertoire, change points and different uses of music during crisis. In the Research questions tab, each question is marked as a measured finding, partial, or not answerable.</p>
+<h3>Studies informing the questions</h3>
+<ul>
+<li><a href="https://musicdiscover.net" target="_blank" rel="noopener">Lee et al., Unsettled Times</a> — distinguishes music discovery (Shazam) from streaming popularity and recommends cross-platform triangulation.</li>
+<li><a href="https://alexeymakarin.github.io/assets/AKMS_War_Nation_Building.pdf" target="_blank" rel="noopener">Abramenko et al., War and Nation-Building (2026)</a> — motivates questions about language and identity. Chart language alone, however, does not justify conclusions about identity.</li>
+<li><a href="https://doi.org/10.1109/ISM59092.2023.00037" target="_blank" rel="noopener">Terroso-Sáenz et al. (2023)</a> — examines audio features (tempo, energy) that are not yet in this dataset.</li>
+<li><a href="https://www.nature.com/articles/s41599-023-01614-0" target="_blank" rel="noopener">Yeung (2023)</a> — distinguishes recording age from nostalgia and uses control-period comparisons. An older song returning to the chart is not proof of a nostalgic motive.</li>
+</ul>
+</body>
+</html>
