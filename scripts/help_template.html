@@ -41,8 +41,6 @@ small,.muted{color:var(--muted)}
 <li><a href="#periods">השוואת תקופות</a></li>
 <li><a href="#identity">שירים, ביצועים ומבצעים</a></li>
 <li><a href="#cautions">זהירות בפרשנות</a></li>
-<li><a href="#export">ייצוא ו־API</a></li>
-<li><a href="#research">מסגרת מחקרית</a></li>
 </ol></nav>
 
 <div class="key"><strong>שלושה כללים לפני הכול:</strong>
@@ -72,7 +70,6 @@ small,.muted{color:var(--muted)}
 <tr><td>אירועים</td><td>רשימת אירועי המלחמה. אפשר לסנן לפי סוג, להוסיף אירועים ולייצא או לייבא אותם.</td></tr>
 <tr><td>נתונים ומקורות</td><td>שורות המקור הגולמיות, קישורים לגיליונות המקוריים, וייצוא קטלוגים.</td></tr>
 <tr><td>קטלוג ביצועים V2</td><td>חיפוש ביצוע לפי שם שיר, מבצע או מזהה, ומעבר לשורות שלו.</td></tr>
-<tr><td>API</td><td>תיעוד של פרמטרים ב־URL לשליפת סדרות או שורות.</td></tr>
 </table>
 
 <h2 id="chart">3. עבודה עם הגרף</h2>
@@ -137,18 +134,5 @@ small,.muted{color:var(--muted)}
 <li>הממצאים המספריים בלשונית ״שאלות״ הם חישובים תיאוריים ראשוניים. יש לאמת אותם מול הכיסוי וזהויות הביצועים לפני פרסום.</li>
 </ul>
 
-<h2 id="export">9. ייצוא ו־API</h2>
-<p>כפתור CSV שליד הגרף מייצא את הסדרות המוצגות. בלשונית ״נתונים ומקורות״ אפשר להוריד את השורות הגולמיות, את קטלוג השירים המנורמל, את היצירות (<code>data/works.csv</code>) ואת הביצועים (<code>data/recordings.csv</code>). קובצי CSV נשמרים עם BOM, כך שעברית נפתחת כראוי ב־Excel.</p>
-<p>לשונית API מתעדת פרמטרים ב־URL, למשל <code>?api=series&amp;grp=lang&amp;split=src&amp;m=n&amp;gran=m&amp;format=csv</code>. האתר סטטי ואינו דורש שרת מסד נתונים. תיעוד מלא של מודל הנתונים: <code>data/v2/docs/INTEGRATION_CONTRACT_HE.md</code>.</p>
-
-<h2 id="research">10. מסגרת מחקרית</h2>
-<p>מסמך הפרויקט <a href="https://docs.google.com/document/d/1jHwvAd1EeBNkBeSfN1jX3WrVhpdtQMgrvc-GZfBNjco/edit" target="_blank" rel="noopener">האזנה למוזיקה בזמן מלחמת ״חרבות ברזל״</a> מציע שאלות על שפה, רפרטואר, נקודות שינוי ושימושים שונים במוזיקה בזמן משבר. בלשונית ״שאלות״ כל שאלה מסומנת כ״ממצא מדוד״, ״חלקי״ או ״לא ניתן לענות״.</p>
-<h3>מחקרים שהנחו את ניסוח השאלות</h3>
-<ul>
-<li><a href="https://musicdiscover.net" target="_blank" rel="noopener">Lee et al., Unsettled Times</a> – מבחין בין גילוי מוזיקה (Shazam) לבין פופולריות בהזרמה, וממליץ להצליב בין פלטפורמות.</li>
-<li><a href="https://alexeymakarin.github.io/assets/AKMS_War_Nation_Building.pdf" target="_blank" rel="noopener">Abramenko et al., War and Nation-Building (2026)</a> – מניע שאלות על שפה וזהות. עם זאת, שפת הדירוג לבדה אינה מצדיקה מסקנות על זהות.</li>
-<li><a href="https://doi.org/10.1109/ISM59092.2023.00037" target="_blank" rel="noopener">Terroso-Sáenz et al. (2023)</a> – בוחן מאפייני שמע (קצב, אנרגיה), שעדיין אינם במאגר.</li>
-<li><a href="https://www.nature.com/articles/s41599-023-01614-0" target="_blank" rel="noopener">Yeung (2023)</a> – מבחין בין גיל ההקלטה לנוסטלגיה ומשתמש בהשוואות לתקופת ביקורת. חזרה של שיר ישן לטופ אינה הוכחה למניע נוסטלגי.</li>
-</ul>
 </body>
 </html>
