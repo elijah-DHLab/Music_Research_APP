@@ -25,3 +25,8 @@ CSV encoding: UTF-8 with BOM (Excel-friendly); commas as separators; blank field
 Important limit: the build script regenerates provisional identity groupings from the raw sources; it does **not yet** apply manual decision CSVs or import additional historical YouTube files automatically. Do not use it as a multi-user curation backend without extending this behavior.
 
 Source-quality check: ten duplicate `(source_id, chart_end_date, rank)` combinations were found in YouTube charts. These are flagged in `quality_issues.csv` and intentionally preserved. The validation script checks the known count instead of silently dropping rows.
+
+## Correction of 2026-11-18
+- **One row per (source, date, track).** When two platform items (two Spotify URIs, or two YouTube videos) were merged into one track and both charted in the same period, they are stored as one row: `v` = sum of both, `r` and `pk` = the better of the two, `pr`/`dc` from the better-ranked item. Each merge is listed in `qa.merged_duplicate_rows` as `[source, date, performance_id, [ranks], [values]]`; `coverage.json` still counts them as source chart rows.
+- **`data/unresolved_rows.csv`** lists every chart row the source left untitled: `in_app=yes` rows are in the data as an untitled item (counted in totals), `in_app=no` rows have neither title nor id and are not in the app.
+- **`qa.merged_performances`** maps each removed `performance_id` to the one it was merged into.

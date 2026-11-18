@@ -15,10 +15,13 @@ D = o['dates']; T = o['tracks']; C = {c: k for k, c in enumerate(o['cols'])}
 by = collections.defaultdict(list)
 for d, r, t, v, s in zip(o['d'], o['r'], o['t'], o['v'], o['s']): by[(s, D[d])].append((r, t, v))
 
-# coverage.json: one row per source period
+# coverage.json: one row per source period. Rows merged by fix_identities_2026_11_18 (same track twice in one
+# chart) still count as source chart rows; rows the source left untitled are listed in data/unresolved_rows.csv.
+merged = collections.Counter()
+for s_, day, _pid, ranks, _vals in o['qa'].get('merged_duplicate_rows', []): merged[(s_, day)] += len(ranks) - 1
 cov = []
 for (s, day), rows in sorted(by.items(), key=lambda x: (x[0][0], x[0][1])):
-    n = len(rows); full = SID[s][2]
+    n = len(rows) + merged[(s, day)]; full = SID[s][2]
     cov.append({'source_id': SID[s][0], 'period_end_date': day, 'observed_chart_rows': str(n), 'rank_1_rows': str(sum(1 for r in rows if r[0] == 1)),
                 'coverage_status': 'observed' if n == full else f'observed_partial_{n}_of_{full}',
                 'interpretation': 'zero appearances may be inferred only within a measured chart for rank-based analyses'})
@@ -55,14 +58,17 @@ with open(rec_path, 'w', newline='', encoding='utf-8-sig') as fh:
     for r in added: w.writerow([r['id'], r['title'], r['artists'], '', 'unspecified', r['identity'], 1, r['review'], '', '', ''])
 
 m = json.load(open(os.path.join(RT, 'manifest.json'), encoding='utf-8'))
-m['build_type'] = 'validated_snapshot_with_gapfill_2026_11_16'
+m['build_type'] = 'validated_snapshot_with_gapfill_2026_11_16_fix_2026_11_18'
 m['summary'].update(observations=len(o['t']), performances=len(pf), periods=len(per))
 m['data_policy']['identity_status'] = 'provisional; gap-fill performances flagged gapfill_artist_linked / gapfill_unmatched'
 m['notes'] = ['Gap-fill 2026-11-16: 502 missing Spotify days and 41 YouTube weeks refetched from source (charts.spotify.com, charts.youtube.com).',
               'The 40 repeated 2023-01-05..2023-10-05 YouTube weeks were replaced by the true weekly charts; no suspect rows remain.',
               'Coverage: Spotify 2023-01-01..2026-11-14 (1,414 days); YouTube 2023-01-05..2026-11-12 (202 weeks).',
               'Untitled rows (removed videos / unnamed tracks) are omitted, as before; see coverage.json observed_partial_*.',
-              'runtime/weeks/*.json week-detail files are not part of this APP package.']
+              'runtime/weeks/*.json week-detail files are not part of this APP package.',
+              'Fix 2026-11-18: wrong Wikidata links corrected (V, Static, Ness, Stilla, Black Sabbath, Forever Tel-Aviv), duplicate entities merged, '
+              'split Ness & Stilla performances merged, same-track duplicate chart rows merged (qa.merged_duplicate_rows), '
+              'Spotify 2026-07-13..18 unnamed row identified; unidentifiable rows in data/unresolved_rows.csv.']
 dump(os.path.join(RT, 'manifest.json'), m)
 ej = [e for e in json.load(open(os.path.join(RT, 'entities.json'), encoding='utf-8')) if not str(e.get('review', '')).startswith('gapfill')]
 have_e = {e['id'] for e in ej}

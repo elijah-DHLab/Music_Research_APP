@@ -44,6 +44,9 @@ def current(e, p):  # preferred-rank claim, else one without an end time (P582),
     return [c['mainsnak']['datavalue']['value']['id'] for c in pick[:1]]
 # manual review 2026-11-16: wrong or doubtful automatic matches
 REJECT = {'Claude', 'La Mosca', 'Hiroshima', 'Seven Music', 'DNDM'}
+# items that must never be matched to a performer (review 2026-11-18): VIAF (for "V"), album by Cults (for "Static"),
+# French rapper Nessbeal (for "Ness"), Heaven & Hell (for "Black Sabbath"), 2007 album (for "Forever Tel-Aviv")
+REJECT_QID = {'Q54919', 'Q15121683', 'Q290264', 'Q742626', 'Q5469449'}
 def year(e, p):
     for v in claim(e, p):
         m = re.match(r'[+-](\d{4})', v.get('time', '')) if isinstance(v, dict) else None
@@ -81,7 +84,7 @@ def main():
         v['qid'] = None
         for q in v['cands']:
             e = E.get(q, {})
-            if not (names_of(e) & set(v['keys'])): continue
+            if q in REJECT_QID or not (names_of(e) & set(v['keys'])): continue
             p31 = set(qids(e, 'P31')); occ = set(qids(e, 'P106'))
             if name in REJECT: break
             if ('Q5' in p31 and occ & MUSIC_OCC) or (p31 & GROUPS) or (q in known_wd): v['qid'] = q; break

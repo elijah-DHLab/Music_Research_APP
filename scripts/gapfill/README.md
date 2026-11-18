@@ -16,6 +16,8 @@
 | `update_master.py` | בונה את קובץ היצירות והמבצעים V2 ואת `data/catalog_master_import.csv` |
 | `wikidata_enrich.py` | מאתר מבצעים חדשים ב־Wikidata (התאמת שם מדויקת + עיסוק מוזיקלי/הרכב) → `wikidata_enrich.json` |
 | `apply_performers.py` | מחיל את המטא־דאטה על גיליון המבצעים V2 ועל האפליקציה |
+| `fix_identities_2026_11_18.py` | תיקוני זהויות ונתונים מ־18.11.2026 (ראו `CHANGELOG.md`); להריץ אחריו `update_runtime.py` |
+| `validate_app.py` | בדיקות קבועות על index.html (VIAF/פריטים דחויים, ביצועים מפוצלים, קרדיט מורכב, שורות כפולות, תרשימים מלאים); exit 1 בכשל |
 | `merge_validate.py` | ממזג את מה שהורד לקובצי ה־Drive, מוסיף עמודת `fill_source`, ועוצר (exit 1) אם נשארו חורים/שבועות זהים |
 
 ## סדר הרצה
